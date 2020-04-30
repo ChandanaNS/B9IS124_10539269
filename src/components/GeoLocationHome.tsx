@@ -21,6 +21,8 @@ import {
   IonImg,
   IonText,
   IonContent,
+  IonCard,
+  IonCardSubtitle,
 } from "@ionic/react";
 
 const GeolocationHome: React.FC<RouteComponentProps> = ({ history }) => {
