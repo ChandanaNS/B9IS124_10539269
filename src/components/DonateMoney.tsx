@@ -1,3 +1,10 @@
+/**
+ * Author: Chandana
+ * Component: Donate screen
+ * Screen: DonateMoney
+ * Description: This screen is for the user who wishes to donate the money.
+ */
+
 import React, { useState } from "react";
 import {
   IonText,
@@ -31,7 +38,6 @@ const DonateMoney: React.FC = () => {
       setdonationAlert(true);
     }
   };
-  console.log("DonameMoney");
   return (
     <IonCard>
       <IonCardHeader>

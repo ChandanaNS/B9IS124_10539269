@@ -1,3 +1,9 @@
+/**
+ * Author: Chandana
+ * Local storage API: getHelpDetails
+ * Description: To check whether the user has already requested for Help
+ */
+
 export const getHelpDetails = () => {
   let localStorage = window.localStorage;
   let location = localStorage.getItem("location");

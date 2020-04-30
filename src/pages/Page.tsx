@@ -11,17 +11,16 @@ import React from "react";
 import { useParams } from "react-router";
 import "./Page.css";
 
-import { IonRouterOutlet } from "@ionic/react";
-
+/*components and routing imports*/
 import { Route, Switch } from "react-router-dom";
 import GeolocationButton from "../components/GeoLocationButton";
 import CameraScreen from "../components/CameraScreen";
 import DonateMoney from "../components/DonateMoney";
-// import LocalLogin from "../components/LocalLogin";
 import ConfirmationScreen from "../components/ConfirmationScreen";
 import MedicalHelp from "../components/MedicalHelp";
 import UserProfile from "../components/UserProfile";
 
+/**This component is for page routing between different components based on the paths */
 const Page: React.FC = () => {
   const { name } = useParams<{ name: string }>();
 
@@ -39,9 +38,9 @@ const Page: React.FC = () => {
       <IonContent>
         <Switch>
           <Route
-            exact
             path="/page/RescueMed"
             component={GeolocationButton}
+            exact
           ></Route>
           <Route path="/page/Medical" exact>
             <CameraScreen />
@@ -54,9 +53,6 @@ const Page: React.FC = () => {
             component={ConfirmationScreen}
             exact
           ></Route>
-          {/* <Route path="/page/LocalLogin" exact>
-              <LocalLogin />
-            </Route> */}
           <Route path="/page/MedicalHelp" exact>
             <MedicalHelp />
           </Route>

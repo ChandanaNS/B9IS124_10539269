@@ -1,6 +1,11 @@
+/**
+ * Author: Chandana
+ * Component: App
+ * GitHub: https://github.com/ChandanaNS/B9IS124_10539269
+ * Description: Rescue Med app helps the user to seek help by sending the location and photos to the nearest hospital
+ */
 import Menu from "./components/Menu";
 import Page from "./pages/Page";
-// import React from "react";
 import React, { useEffect, useState } from "react";
 import { IonApp, IonRouterOutlet, IonSplitPane } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -24,9 +29,11 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-// import { Plugins } from "@capacitor/core";
+
+/*Local storage API methods */
 import { getUserData } from "./mockapi/getUserData";
 import { getHelpDetails } from "./mockapi/getHelpDetails";
+
 import LocalLogin from "./components/LocalLogin";
 
 const App: React.FC = () => {
@@ -34,15 +41,12 @@ const App: React.FC = () => {
   const [isLocationSubmitted, setLocationSubmitted] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log("team");
     const userdata = getUserData();
     const helperDetails = getHelpDetails();
-
     console.log(helperDetails, "helperDetails");
     setLocationSubmitted(helperDetails.isLocationSubmitted);
     console.log(userdata, "userdata");
     setIsLoggedIn(userdata.isLoggedin);
-    console.log(isLoggedIn);
   }, []);
 
   return (

@@ -1,8 +1,16 @@
 /**
  * Author: Chandana
  * Component: Geo Location plugin
+ * Screen: RescueMed
+ * Description: This screen captures the location of the user using Geolocation plugin.
+ * Only Latitude and logitute data is fetched
+ * Future Scope: Integrating google maps
  */
 
+import React, { useState, useEffect } from "react";
+import { locate, helpBuoy } from "ionicons/icons";
+import { RouteComponentProps } from "react-router";
+import { getHelpDetails } from "../mockapi/getHelpDetails";
 import { Geolocation, Geoposition } from "@ionic-native/geolocation";
 import {
   IonButton,
@@ -10,39 +18,16 @@ import {
   IonLabel,
   IonIcon,
   IonItemDivider,
-  IonCard,
-  IonCardContent,
+  IonImg,
   IonText,
+  IonContent,
 } from "@ionic/react";
-import React, { useState, useEffect } from "react";
-import CameraScreen from "./CameraScreen";
-import {
-  locate,
-  navigate,
-  navigateCircle,
-  helpCircle,
-  helpBuoy,
-} from "ionicons/icons";
-
-import { RouteComponentProps } from "react-router";
-import { getHelpDetails } from "../mockapi/getHelpDetails";
-
-interface LocationError {
-  showError: boolean;
-  message?: string;
-}
 
 const GeolocationButton: React.FC<RouteComponentProps> = ({ history }) => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<LocationError>({ showError: false });
   const [position, setPosition] = useState<Geoposition>();
-  // const [isLocationSubmitted, setLocationSubmitted] = useState<boolean>(false);
-
   useEffect(() => {
     const helperDetails = getHelpDetails();
-
     console.log(helperDetails, "helperDetails");
-    // setLocationSubmitted(helperDetails.isLocationSubmitted);
     if (helperDetails.isLocationSubmitted) {
       history.push("/page/Confirmation");
     } else {
@@ -51,45 +36,55 @@ const GeolocationButton: React.FC<RouteComponentProps> = ({ history }) => {
   }, []);
 
   const getLocation = async () => {
-    setLoading(true);
     try {
       const position = await Geolocation.getCurrentPosition();
       setPosition(position);
-      setLoading(false);
-      setError({ showError: false });
       console.log(position);
     } catch (e) {
-      setError({ showError: true, message: e.message });
-      setLoading(false);
+      console.log("GetLocation Error", e);
     }
   };
 
   return (
-    <IonCard>
-      <IonCardContent>
-        <IonItemDivider color="secondary">
-          <IonItem color="secondary">
-            <IonIcon slot="start" icon={locate} />
-            <IonLabel>Your current Location </IonLabel>
-          </IonItem>
-        </IonItemDivider>
-        <IonItem color="light">
-          <IonLabel>
-            Latitude: {position ? position.coords.latitude : ""}
-          </IonLabel>
+    <IonContent>
+      <IonItemDivider></IonItemDivider>
+      <IonItemDivider color="secondary">
+        <IonItem color="secondary">
+          <IonIcon slot="start" icon={locate} />
+          <IonLabel>Your current Location </IonLabel>
         </IonItem>
-        <IonItem color="light">
-          <IonLabel>
-            Longitude: {position ? position.coords.longitude : ""}
-          </IonLabel>
-        </IonItem>
+      </IonItemDivider>
+      <IonItem color="light">
+        <IonLabel>
+          Latitude: {position ? position.coords.latitude : ""}
+        </IonLabel>
+      </IonItem>
+      <IonItem color="light">
+        <IonLabel>
+          Longitude: {position ? position.coords.longitude : ""}
+        </IonLabel>
+      </IonItem>
+
+      <IonImg
+        src="assets/icon/maps.png"
+        style={{
+          display: "block",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      />
+      <IonLabel>
         <IonText>Your Location will be shared.</IonText>
-        &nbsp;
-        <IonButton color="danger" href="/page/Medical" expand="block">
-          Get Help <IonIcon slot="end" icon={helpBuoy} />
-        </IonButton>
-      </IonCardContent>
-    </IonCard>
+      </IonLabel>
+      <IonButton
+        color="danger"
+        href="/page/Medical"
+        expand="block"
+        style={{ position: "fixed", bottom: "2em", right: "0", left: "0" }}
+      >
+        Get Help <IonIcon slot="end" icon={helpBuoy} />
+      </IonButton>
+    </IonContent>
   );
 };
 

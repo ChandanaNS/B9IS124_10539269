@@ -1,3 +1,10 @@
+/**
+ * Author: Chandana
+ * Component: Camera Screen
+ * Screen: Medical
+ * Description: This screen appears to take a picture of the accident/ emergency scene when the user presses the Get Help button
+ *              on the home screen of the app. Uses Camera plugin and makes the picture mandatory to move to confirmation screen.
+ */
 import {
   IonContent,
   IonIcon,
@@ -44,8 +51,6 @@ export class CameraScreen extends Component {
       setHelpDetails({}, this.state.photo, true);
     } catch (e) {
       console.log(e);
-    } finally {
-      console.log("Finally");
     }
   }
 

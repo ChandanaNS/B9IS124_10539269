@@ -1,6 +1,8 @@
-// import { Plugins } from '@capacitor/core';
-// const { Storage } = Plugins;
-
+/**
+ * Author: Chandana
+ * Local storage API: getUserData
+ * Description: To check whether the user has logged in
+ */
 export const getUserData = () => {
   let localStorage = window.localStorage;
   let isLoggedin = localStorage.getItem("isLoggedin");

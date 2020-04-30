@@ -1,3 +1,10 @@
+/**
+ * Author: Chandana
+ * Component: MedicalHelp
+ * Screen: MedicalHelp
+ * Description: If the user wants to donate blood or organs, this form is used to take the user data.
+ */
+
 import React, { useState } from "react";
 import {
   IonContent,
@@ -28,10 +35,9 @@ const checkboxList = [
   { val: "Any part of the body", isChecked: true },
   { val: "Eyes", isChecked: false },
   { val: "Kidney", isChecked: false },
-  { val: "Hear", isChecked: false },
+  { val: "Heart", isChecked: false },
   { val: "Lungs", isChecked: false },
   { val: "Liver", isChecked: false },
-  { val: "Pancrease", isChecked: false },
 ];
 
 const MedicalHelp: React.FC = () => {
@@ -58,7 +64,6 @@ const MedicalHelp: React.FC = () => {
       setsubmitAlert(true);
     }
   };
-  console.log("DonameMoney");
   return (
     <IonContent>
       <IonList>
@@ -83,7 +88,6 @@ const MedicalHelp: React.FC = () => {
             <IonRadio slot="end" value="Donate Organs" />
           </IonItem>
         </IonRadioGroup>
-        {/* <IonItemDivider><IonLabel className="ion-padding">Your Selection</IonLabel></IonItemDivider> */}
         <IonItem color="warning">{selected ?? "(none selected"}</IonItem>
       </IonList>
       <IonList>

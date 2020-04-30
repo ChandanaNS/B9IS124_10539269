@@ -1,3 +1,9 @@
+/**
+ * Author: Chandana
+ * Local storage API: setUserData
+ * Description: To set values to local storage when the user is logged in
+ */
+
 export const setUserData = (
   isLoggedin: boolean,
   username: string,

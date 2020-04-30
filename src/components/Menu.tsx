@@ -38,19 +38,6 @@ const appPages: AppPage[] = [
     iosIcon: home,
     mdIcon: homeSharp,
   },
-  // {
-  //   title: "Medical",
-  //   url: "/page/Medical",
-  //   iosIcon: medical,
-  //   mdIcon: medalSharp,
-  // },
-  // {
-  //   title: "Call",
-  //   url: "/page/Call",
-  //   iosIcon: call,
-  //   mdIcon: callSharp,
-  // },
-
   {
     title: "Medical Help",
     url: "/page/MedicalHelp",
@@ -69,19 +56,10 @@ const appPages: AppPage[] = [
     iosIcon: create,
     mdIcon: createSharp,
   },
-  // {
-  //   title: "Logout",
-  //   url: "/page/Logout",
-  //   iosIcon: logOut,
-  //   mdIcon: logInSharp,
-  // },
 ];
-
-const labels = ["User Details"];
 
 const Menu: React.FC = () => {
   const location = useLocation();
-  // alert(location.pathname);
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
@@ -107,16 +85,6 @@ const Menu: React.FC = () => {
             );
           })}
         </IonList>
-
-        {/* <IonList id="labels-list">
-          <IonListHeader>Account</IonListHeader>
-          {labels.map((label, index) => (
-            <IonItem lines="none" key={index}>
-              <IonIcon slot="start" icon={create} />
-              <IonLabel>{label}</IonLabel>
-            </IonItem>
-          ))}
-        </IonList> */}
       </IonContent>
     </IonMenu>
   );

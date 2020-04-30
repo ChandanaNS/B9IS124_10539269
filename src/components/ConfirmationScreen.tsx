@@ -1,4 +1,12 @@
-import React, { useState, useRef } from "react";
+/**
+ * Author: Chandana
+ * Component: Confirmation screen
+ * Screen: Confirmation
+ * Description: This screen helps the user to notify that their request is under process.
+ *              On click of revoke the request can be reverted.
+ */
+
+import React, { useState } from "react";
 import {
   IonContent,
   IonCard,
@@ -11,7 +19,6 @@ import {
   IonProgressBar,
 } from "@ionic/react";
 import { trash, close } from "ionicons/icons";
-import { Redirect } from "react-router";
 
 import { RouteComponentProps } from "react-router";
 import { setHelpDetails } from "../mockapi/setHelpDetails";
@@ -20,12 +27,7 @@ interface OwnProps extends RouteComponentProps {}
 interface LoginProps extends OwnProps {}
 
 const ConfirmationScreen: React.FC<LoginProps> = ({ history }) => {
-  // const ConfirmationScreen: React.FC = ({history}) => {
-  const [number, setNumber] = useState<number>();
-  const [donationAlert, setdonationAlert] = useState(false);
   const [showActionSheet, setShowActionSheet] = useState(false);
-  const [revokeAction, setRevokeAction] = useState<boolean>(false);
-  console.log("DonameMoney : Confirmation");
   return (
     <IonContent>
       <IonCard>
@@ -59,9 +61,7 @@ const ConfirmationScreen: React.FC<LoginProps> = ({ history }) => {
             role: "destructive",
             icon: trash,
             handler: () => {
-              console.log("Revoke clicked");
-              setRevokeAction(true);
-
+              console.info("Revoke clicked");
               setHelpDetails({}, "", false);
               history.push("/page/RescueMed", { direction: "none" });
             },
@@ -71,7 +71,7 @@ const ConfirmationScreen: React.FC<LoginProps> = ({ history }) => {
             icon: close,
             role: "cancel",
             handler: () => {
-              console.log("Cancel clicked");
+              console.info("Cancel clicked");
             },
           },
         ]}
