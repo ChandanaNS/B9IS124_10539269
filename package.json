@@ -1,8 +1,9 @@
 {
-  "name": "rescuemed",
+  "name": "RescueMed",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^2.0.1",
     "@capacitor/core": "^2.0.1",
     "@capacitor/ios": "^2.0.1",
     "@codetrix-studio/capacitor-google-auth": "^2.1.0",

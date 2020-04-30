@@ -43,9 +43,9 @@ const App: React.FC = () => {
   useEffect(() => {
     const userdata = getUserData();
     const helperDetails = getHelpDetails();
-    console.log(helperDetails, "helperDetails");
+    console.info(helperDetails, "helperDetails");
     setLocationSubmitted(helperDetails.isLocationSubmitted);
-    console.log(userdata, "userdata");
+    console.info(userdata, "userdata");
     setIsLoggedIn(userdata.isLoggedin);
   }, []);
 

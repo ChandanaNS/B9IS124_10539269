@@ -13,11 +13,11 @@ export const getUserData = () => {
   let bloodGroup = localStorage.getItem("bloodGroup");
   const data = {
     isLoggedin: isLoggedin === "true" ? true : false,
-    username: username != undefined ? username : " ",
-    password: username != undefined ? password : " ",
-    emergencyContact: username != undefined ? emergencyContact : " ",
-    email: username != undefined ? email : " ",
-    bloodGroup: username != undefined ? bloodGroup : " ",
+    username: username !== undefined ? username : " ",
+    password: username !== undefined ? password : " ",
+    emergencyContact: username !== undefined ? emergencyContact : " ",
+    email: username !== undefined ? email : " ",
+    bloodGroup: username !== undefined ? bloodGroup : " ",
   };
   return data;
 };

@@ -1,3 +1,11 @@
+/**
+ * Author: Chandana
+ * Component: User profile
+ * Screen: UserProfile
+ * Description: This screen helps the user to edit their details and update the details.
+ * Also, the user can logout of the app using Logout option in the screen.
+ */
+
 import React, { useState, useEffect } from "react";
 import {
   IonContent,
@@ -110,7 +118,6 @@ const UserProfile: React.FC<UserProfileProps> = ({ history }) => {
                   onClick={() => {
                     setupdateProfile(true);
                   }}
-                  size="small"
                 >
                   Update
                 </IonButton>

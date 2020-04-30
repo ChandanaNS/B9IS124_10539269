@@ -13,7 +13,7 @@ import "./Page.css";
 
 /*components and routing imports*/
 import { Route, Switch } from "react-router-dom";
-import GeolocationButton from "../components/GeoLocationButton";
+import GeolocationHome from "../components/GeoLocationHome";
 import CameraScreen from "../components/CameraScreen";
 import DonateMoney from "../components/DonateMoney";
 import ConfirmationScreen from "../components/ConfirmationScreen";
@@ -39,7 +39,7 @@ const Page: React.FC = () => {
         <Switch>
           <Route
             path="/page/RescueMed"
-            component={GeolocationButton}
+            component={GeolocationHome}
             exact
           ></Route>
           <Route path="/page/Medical" exact>
