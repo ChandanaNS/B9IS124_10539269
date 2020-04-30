@@ -6,7 +6,7 @@
  *              On click of revoke the request can be reverted.
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   IonContent,
   IonCard,
@@ -27,6 +27,16 @@ interface OwnProps extends RouteComponentProps {}
 interface LoginProps extends OwnProps {}
 
 const ConfirmationScreen: React.FC<LoginProps> = ({ history }) => {
+  useEffect(() => {
+    //Redirect after 50 sec
+    const timer = setTimeout(() => {
+      console.info("Revoke action");
+      setHelpDetails({}, "", false);
+      history.push("/page/RescueMed", { direction: "none" });
+    }, 50000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const [showActionSheet, setShowActionSheet] = useState(false);
   return (
     <IonContent>

@@ -56,26 +56,39 @@ const GeolocationHome: React.FC<RouteComponentProps> = ({ history }) => {
       </IonItemDivider>
       <IonItem color="light">
         <IonLabel>
-          Latitude: {position ? position.coords.latitude : ""}
+          Latitude:{" "}
+          <IonText color="secondary">
+            {position ? position.coords.latitude : ""}
+          </IonText>
         </IonLabel>
       </IonItem>
       <IonItem color="light">
         <IonLabel>
-          Longitude: {position ? position.coords.longitude : ""}
+          Longitude:
+          <IonText color="secondary">
+            {position ? position.coords.longitude : ""}
+          </IonText>
         </IonLabel>
       </IonItem>
+      <IonCard className="ion-fixed">
+        <IonImg
+          src="assets/icon/maps.png"
+          style={{
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        />
+        <IonCardSubtitle>Your Location will be shared! </IonCardSubtitle>
+        <IonLabel>
+          <IonText>
+            On Click on get help, you agree to share your location with us so
+            that the nearest Hospital get notified. Please click on get help to
+            continue.
+          </IonText>
+        </IonLabel>
+      </IonCard>
 
-      <IonImg
-        src="assets/icon/maps.png"
-        style={{
-          display: "block",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      />
-      <IonLabel>
-        <IonText>Your Location will be shared.</IonText>
-      </IonLabel>
       <IonButton
         color="danger"
         href="/page/Medical"

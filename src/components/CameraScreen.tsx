@@ -9,9 +9,10 @@ import {
   IonContent,
   IonIcon,
   IonButton,
-  IonLabel,
   IonButtons,
   IonBackButton,
+  IonCard,
+  IonText,
 } from "@ionic/react";
 import React, { Component } from "react";
 import { Plugins, CameraResultType } from "@capacitor/core";
@@ -86,8 +87,7 @@ export class CameraScreen extends Component {
               </IonButton>
             </>
           ) : (
-            <>
-              <IonLabel>Picture is mandatory</IonLabel>
+            <IonCard>
               <IonButton
                 expand="block"
                 onClick={() => {
@@ -97,7 +97,8 @@ export class CameraScreen extends Component {
                 <IonIcon slot="start" icon={camera} />
                 Take Picture
               </IonButton>
-            </>
+              <IonText color="danger">*Picture is mandatory</IonText>
+            </IonCard>
           )}
         </IonContent>
       </>

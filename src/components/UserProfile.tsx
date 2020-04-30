@@ -118,6 +118,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ history }) => {
                   onClick={() => {
                     setupdateProfile(true);
                   }}
+                  size="small"
                 >
                   Update
                 </IonButton>
